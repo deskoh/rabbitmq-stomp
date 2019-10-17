@@ -18,3 +18,8 @@ node queue.js
 # Known issue: Queue will build up for STOMP subscription.
 node queue-amq.js
 ```
+
+## Useful References
+
+* [RabbitMQ STOMP Plugin](https://www.rabbitmq.com/stomp.html)
+* [RoboMQ](https://robomq.readthedocs.io/en/latest/STOMP/#nodejs)
