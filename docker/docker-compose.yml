@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+  rabbitmq:
+    image: rabbitmq-stomp
+    build:
+      context: ./build
+    ports:
+      # Management port
+      - 15672:15672
+      # RabbitMQ port
+      - 5672:5672
+      # STOMP port
+      - 61613:61613
