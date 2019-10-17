@@ -15,7 +15,6 @@ node pubsub.js
 node queue.js
 
 # AMQ Queue test
-# Known issue: Queue will build up for STOMP subscription.
 node queue-amq.js
 ```
 
