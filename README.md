@@ -1,21 +1,44 @@
 # RabbitMQ STOMP
 
-RabbitMQ STOMP / AMQP test.
+RabbitMQ STOMP / AMQP examples.
 
 ## Quick Start
+
+Run RabbitMQ broker.
 
 ```sh
 # Start RabbitMQ container using docker-compose
 npm run rabbitmq
+```
 
-# Pub / Sub test
-node pubsub.js
+### STOMP Publisher
 
-# Queue test
+See `stomp` folder.
+
+```sh
+# Pub / Sub example
+node stomp/pubsub.js
+
+# Queue example
+node stomp/queue.js
+
+# AMQ Queue example
+node stomp/queue-amq.js
+```
+
+### AMQP Publisher
+
+See `amqp` folder.
+
+```sh
+# Pub / Sub example
+node amqp/pubsub.js
+
+# Pub / Sub example using `fanout` exchange
+node amqp/pubsub-fanout.js
+
+# Queue example
 node queue.js
-
-# AMQ Queue test
-node queue-amq.js
 ```
 
 ## Useful References

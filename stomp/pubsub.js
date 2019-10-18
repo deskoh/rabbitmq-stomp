@@ -29,14 +29,14 @@ async function consume() {
   const conn = await amqp.connect('amqp://localhost')
   const ch = await conn.createChannel()
   // Creates an auto-delete queue.
-  const queueName = 'any'
-  await ch.assertQueue(queueName, { durable: false, autoDelete: true })
+  const queueReply = await ch.assertQueue('', { durable: false, autoDelete: true, exclusive: true })
+  console.log(`Auto-delete queue created: ${queueReply.queue}`)
   
   // Following queues bound to `amq.topic` exchange will receive the messages
-  ch.bindQueue(queueName, 'amq.topic', q)
-  // ch.bindQueue(queueName, 'amq.topic', '#')
+  ch.bindQueue(queueReply.queue, 'amq.topic', q)
+  // ch.bindQueue(queueReply.queue, 'amq.topic', '#')
   
-  ch.consume(queueName, (msg) => {
+  ch.consume(queueReply.queue, (msg) => {
     console.log(`[AMQP] ${msg.content.toString()}`)
   })
 }
